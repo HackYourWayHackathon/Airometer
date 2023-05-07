@@ -1,8 +1,11 @@
 import 'package:air_quality_app/controller/global_controller.dart';
+import 'package:air_quality_app/screens/search_location.dart';
 import 'package:air_quality_app/widgets/components_widget.dart';
+import 'package:air_quality_app/widgets/drawer.dart';
 import 'package:air_quality_app/widgets/header_widget.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+
 
 import '../widgets/aqi_data_widget.dart';
 
@@ -16,14 +19,46 @@ class HomeSCreen extends StatefulWidget {
 class _HomeSCreenState extends State<HomeSCreen> {
   final GlobalController globalController =
       Get.put(GlobalController(), permanent: true);
+
+  void searchBut(){
+    Future.delayed(const Duration(seconds: 1));
+    Navigator.push (
+    context,
+    MaterialPageRoute(builder: (context) => SearchPage()),
+);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+     drawer:  Drawer(
+      child: Container(  
+        color: Color.fromRGBO(235, 231, 235, 1),
+        
+        ),
+      ),
+
+      //AppBar
+      appBar: AppBar(  
+          iconTheme: IconThemeData(color: Colors.black),
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          
+          actions: [
+            IconButton(
+              onPressed: searchBut, 
+              icon: Icon(Icons.search,color: Colors.black,),
+            )
+          ],
+        ),
+        
+
       body: SafeArea(
           child: Obx(() => globalController.checkLoading().isTrue
               ? const Center(child: CircularProgressIndicator())
               : ListView(children: [
-                  const SizedBox(height: 50),
+                  const SizedBox(height: 10),
                   const HeaderWidget(),
                   AQIDataWidget(
                     airQuality: globalController.getAirQualityData(),
