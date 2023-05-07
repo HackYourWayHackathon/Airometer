@@ -56,21 +56,21 @@ class AQIDataWidget extends StatelessWidget {
   }
 
   Image aqiImage(int aqi) => Image.asset('assets/images/$aqi.png');
-}
 
-String aqiText(int aqi) {
-  switch (aqi) {
-    case 1:
-      return 'Good';
-    case 2:
-      return 'Fair';
-    case 3:
-      return 'Moderate';
-    case 4:
-      return 'Poor';
-    case 5:
-      return 'Very Poor';
-    default:
-      return 'AQI';
+  String aqiText(int aqi) {
+    switch (aqi) {
+      case 1:
+        return 'Good';
+      case 2:
+        return 'Fair';
+      case 3:
+        return 'Moderate';
+      case 4:
+        return 'Poor';
+      case 5:
+        return 'Very Poor';
+      default:
+        return 'AQI';
+    }
   }
 }

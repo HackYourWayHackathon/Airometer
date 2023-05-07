@@ -36,7 +36,6 @@ class _HeaderWidgetState extends State<HeaderWidget> {
       state = place.subAdministrativeArea!;
       country = place.country!;
     });
-    print(city);
   }
 
   @override

@@ -1,6 +1,7 @@
 import 'package:air_quality_app/controller/global_controller.dart';
 import 'package:air_quality_app/widgets/components_widget.dart';
 import 'package:air_quality_app/widgets/header_widget.dart';
+import 'package:air_quality_app/widgets/notification_widget.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +31,8 @@ class _HomeSCreenState extends State<HomeSCreen> {
                   ),
                   const SizedBox(height: 50),
                   ComponentsWidget(
-                      airQuality: globalController.getAirQualityData())
+                      airQuality: globalController.getAirQualityData()),
+                  const BGServiceSwitch(),
                 ]))),
     );
   }
