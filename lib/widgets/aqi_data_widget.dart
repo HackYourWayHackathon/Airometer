@@ -31,7 +31,7 @@ class AQIDataWidget extends StatelessWidget {
             Text(
               aqiText(aqi),
               style: TextStyle(color: Colors.grey.shade800, fontSize: 18),
-            )
+            ),
           ],
         ),
       ),

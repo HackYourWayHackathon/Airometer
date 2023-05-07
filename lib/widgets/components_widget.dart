@@ -39,8 +39,9 @@ class ComponentsWidget extends StatelessWidget {
           children: List.generate(8, (index) {
             return Container(
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 222, 222, 222),
+                color: Color.fromARGB(255, 218, 223, 223),
                 borderRadius: BorderRadius.circular(20),
+                border: Border.all(width: 2,color: progressColor(aqi))
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -74,11 +75,11 @@ class ComponentsWidget extends StatelessWidget {
       case 2:
         return Colors.green;
       case 3:
-        return Colors.amber;
+        return Color.fromRGBO(218, 168, 7, 1);
       case 4:
-        return Colors.deepOrange.shade400;
+        return Color.fromARGB(255, 243, 67, 55);
       case 5:
-        return Colors.red;
+        return Color.fromARGB(255, 138, 10, 1);
       default:
         return Colors.blue;
     }
