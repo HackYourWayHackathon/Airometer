@@ -18,7 +18,7 @@ class AQIDataWidget extends StatelessWidget {
         radius: 120,
         lineWidth: 20,
         animation: true,
-        animationDuration: 100,
+        animationDuration: 2000,
         startAngle: 185,
         percent: aqiPercent,
         progressColor: progressColor(aqi),

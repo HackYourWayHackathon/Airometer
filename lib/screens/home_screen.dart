@@ -1,4 +1,5 @@
 import 'package:air_quality_app/controller/global_controller.dart';
+import 'package:air_quality_app/widgets/components_widget.dart';
 import 'package:air_quality_app/widgets/header_widget.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -21,12 +22,15 @@ class _HomeSCreenState extends State<HomeSCreen> {
       body: SafeArea(
           child: Obx(() => globalController.checkLoading().isTrue
               ? const Center(child: CircularProgressIndicator())
-              : ListView(scrollDirection: Axis.vertical, children: [
+              : ListView(children: [
                   const SizedBox(height: 50),
                   const HeaderWidget(),
                   AQIDataWidget(
                     airQuality: globalController.getAirQualityData(),
                   ),
+                  const SizedBox(height: 50),
+                  ComponentsWidget(
+                      airQuality: globalController.getAirQualityData())
                 ]))),
     );
   }
