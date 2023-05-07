@@ -39,6 +39,7 @@ void onBGServiceEnabled() {
       service.setNotificationInfo(
         title: 'Poor Air Quality Warning!',
         content: 'Air Quality: ${aqiText(aqi)}',
+    
       );
     }
   });

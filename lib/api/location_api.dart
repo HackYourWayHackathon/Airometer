@@ -54,7 +54,7 @@ class LocationApi extends ChangeNotifier {
             placeMarks.forEach((placeMark) {
               addPlace(Place(
                 city: placeMark.locality!,
-                state: placeMark.subAdministrativeArea!,
+                state: placeMark.administrativeArea!,
                 country: placeMark.country!,
               ));
             });

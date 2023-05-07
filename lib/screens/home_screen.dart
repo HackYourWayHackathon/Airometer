@@ -33,13 +33,13 @@ class _HomeSCreenState extends State<HomeSCreen> {
     return Scaffold(
       drawer: Drawer(
         child: Container(
-          color: const Color.fromRGBO(235, 231, 235, 1),
+          color: Color.fromARGB(255, 226, 221, 226),
         ),
       ),
 
       //AppBar
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Color.fromRGBO(0, 77, 64, 1)),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         actions: [
@@ -47,7 +47,7 @@ class _HomeSCreenState extends State<HomeSCreen> {
             onPressed: searchBut,
             icon: const Icon(
               Icons.search,
-              color: Colors.black,
+              color: Color.fromRGBO(0, 77, 64, 1),
             ),
           )
         ],
@@ -65,6 +65,7 @@ class _HomeSCreenState extends State<HomeSCreen> {
                   const SizedBox(height: 50),
                   ComponentsWidget(
                       airQuality: globalController.getAirQualityData()),
+                  const SizedBox(height: 10),
                   const BGServiceSwitch(),
                 ]))),
     );

@@ -45,10 +45,10 @@ class _SearchPageState extends State<SearchPage> {
                         fillColor: const Color.fromRGBO(224, 221, 224, 1),
                         hintText: "Search Location",
                         hintStyle: const TextStyle(
-                            fontSize: 18, color: Colors.deepPurple),
+                            fontSize: 18, color: Color.fromRGBO(0, 77, 64, 1)),
                         suffixIcon: const Icon(
                           Icons.location_city,
-                          color: Colors.deepPurple,
+                          color: Color.fromRGBO(0, 77, 64, 1),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.0),
@@ -57,7 +57,7 @@ class _SearchPageState extends State<SearchPage> {
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.0),
                           borderSide: const BorderSide(
-                              color: Colors.deepPurple, width: 3.0),
+                              color: Color.fromRGBO(0, 77, 64, 1), width: 3.0),
                         ),
                       ),
                       onChanged: api.handleSearch,
