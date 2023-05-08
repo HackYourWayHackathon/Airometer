@@ -64,4 +64,15 @@ class GlobalController extends GetxController {
       });
     });
   }
+
+  getLocationByCoordinates(lat, lon) {
+    _latitude.value = lat;
+    _longitude.value = lon;
+    return FetchAirQualityAPI()
+        .processData(_latitude.value, _longitude.value)
+        .then((value) {
+      airQuality.value = value;
+      _isLoading.value = false;
+    });
+  }
 }

@@ -1,58 +1,33 @@
+import 'package:air_quality_app/api/fetch_air_quality.dart';
 import 'package:air_quality_app/controller/global_controller.dart';
-import 'package:air_quality_app/screens/search_location.dart';
+import 'package:air_quality_app/model/air_quality/air_quality.dart';
+import 'package:air_quality_app/widgets/aqi_data_widget.dart';
 import 'package:air_quality_app/widgets/components_widget.dart';
-import 'package:air_quality_app/widgets/drawer.dart';
 import 'package:air_quality_app/widgets/header_widget.dart';
-import 'package:air_quality_app/widgets/notification_widget.dart';
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import '../widgets/aqi_data_widget.dart';
+class NewLocationscreen extends StatelessWidget {
+  final GlobalController globalController;
+  final double lat, lon;
 
-class HomeSCreen extends StatefulWidget {
-  const HomeSCreen({super.key});
-
-  @override
-  State<HomeSCreen> createState() => _HomeSCreenState();
-}
-
-class _HomeSCreenState extends State<HomeSCreen> {
-  final GlobalController globalController =
-      Get.put(GlobalController(), permanent: true);
-
-  void searchBut() {
-    Future.delayed(const Duration(seconds: 1));
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const SearchPage()),
-    );
-  }
+  const NewLocationscreen(
+      {Key? key,
+      required this.lat,
+      required this.lon,
+      required this.globalController})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    globalController.getLocationByCoordinates(lat, lon);
     return Scaffold(
-      drawer: Drawer(
-        child: Container(
-          color: const Color.fromARGB(255, 226, 221, 226),
-        ),
-      ),
-
       //AppBar
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Color.fromRGBO(0, 77, 64, 1)),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        actions: [
-          IconButton(
-            onPressed: searchBut,
-            icon: const Icon(
-              Icons.search,
-              color: Color.fromRGBO(0, 77, 64, 1),
-            ),
-          )
-        ],
       ),
-
       body: SafeArea(
           child: Obx(() => globalController.checkLoading().isTrue
               ? const Center(child: CircularProgressIndicator())
@@ -66,7 +41,6 @@ class _HomeSCreenState extends State<HomeSCreen> {
                   ComponentsWidget(
                       airQuality: globalController.getAirQualityData()),
                   const SizedBox(height: 10),
-                  const BGServiceSwitch(),
                 ]))),
     );
   }

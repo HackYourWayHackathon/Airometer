@@ -6,8 +6,8 @@ import 'package:intl/intl.dart';
 import '../controller/global_controller.dart';
 
 class HeaderWidget extends StatefulWidget {
-  const HeaderWidget({super.key});
-
+  final GlobalController globalController;
+  const HeaderWidget({super.key, required this.globalController});
   @override
   State<HeaderWidget> createState() => _HeaderWidgetState();
 }
@@ -18,11 +18,9 @@ class _HeaderWidgetState extends State<HeaderWidget> {
   String country = "";
   String date = DateFormat("yMMMd").format(DateTime.now());
 
-  final GlobalController globalController =
-      Get.put(GlobalController(), permanent: true);
-
   @override
   void initState() {
+    final GlobalController globalController = widget.globalController;
     getAddress(globalController.getLatitude().value,
         globalController.getLongitude().value);
     super.initState();
@@ -32,8 +30,12 @@ class _HeaderWidgetState extends State<HeaderWidget> {
     List<Placemark> placemark = await placemarkFromCoordinates(lat, lon);
     Placemark place = placemark[0];
     setState(() {
-      city = place.locality!;
-      state = place.administrativeArea!;
+      city = (place.locality ??
+          place.subAdministrativeArea ??
+          place.subLocality ??
+          place.name ??
+          place.street)!;
+      state = (place.administrativeArea ?? place.subAdministrativeArea)!;
       country = place.country!;
     });
   }

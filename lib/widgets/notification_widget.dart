@@ -30,31 +30,29 @@ class _BGServiceSwitchState extends State<BGServiceSwitch> {
       padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
       child: GestureDetector(
         onTap: () async {
-              var isRunning = await FlutterBackgroundService().isServiceRunning();
-              if (isRunning) {
-                FlutterBackgroundService().sendData({'action': 'stopService'});
-              } else {
-                FlutterBackgroundService.initialize(onBGServiceEnabled);
-              }
-              setState(() {
-                this.isRunning = isRunning;
-              });
-            },
+          var isRunning = await FlutterBackgroundService().isServiceRunning();
+          if (isRunning) {
+            FlutterBackgroundService().sendData({'action': 'stopService'});
+          } else {
+            FlutterBackgroundService.initialize(onBGServiceEnabled);
+          }
+          setState(() {
+            this.isRunning = isRunning;
+          });
+        },
         child: Container(
-           padding: EdgeInsets.all(20),
-            margin: EdgeInsets.only(left: 10, right: 10, bottom: 15),
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.only(left: 10, right: 10, bottom: 15),
             width: double.infinity,
             decoration: BoxDecoration(
                 // ignore: deprecated_member_use
-                color: Color.fromRGBO(0, 77, 64, 1),
+                color: const Color.fromRGBO(0, 77, 64, 1),
                 borderRadius: BorderRadius.circular(15)),
             child: Center(
-              child: Text(
-                (isRunning) ? textEnable : textDisable,
-                style: TextStyle(color: Colors.white,fontSize: 16),
-              )
-            )
-          ),
+                child: Text(
+              (isRunning) ? textEnable : textDisable,
+              style: const TextStyle(color: Colors.white, fontSize: 16),
+            ))),
       ),
     );
   }

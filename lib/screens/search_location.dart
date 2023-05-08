@@ -1,8 +1,11 @@
 import 'package:air_quality_app/api/location_api.dart';
+import 'package:air_quality_app/controller/global_controller.dart';
+import 'package:air_quality_app/screens/new_location.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets/places.dart';
@@ -19,6 +22,7 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
+    final navigator = Navigator.of(context);
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
@@ -37,31 +41,29 @@ class _SearchPageState extends State<SearchPage> {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  Container(
-                    child: TextField(
-                      style: const TextStyle(fontSize: 18, color: Colors.black),
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: const Color.fromRGBO(224, 221, 224, 1),
-                        hintText: "Search Location",
-                        hintStyle: const TextStyle(
-                            fontSize: 18, color: Color.fromRGBO(0, 77, 64, 1)),
-                        suffixIcon: const Icon(
-                          Icons.location_city,
-                          color: Color.fromRGBO(0, 77, 64, 1),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: BorderSide.none,
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: const BorderSide(
-                              color: Color.fromRGBO(0, 77, 64, 1), width: 3.0),
-                        ),
+                  TextField(
+                    style: const TextStyle(fontSize: 18, color: Colors.black),
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: const Color.fromRGBO(224, 221, 224, 1),
+                      hintText: "Search Location",
+                      hintStyle: const TextStyle(
+                          fontSize: 18, color: Color.fromRGBO(0, 77, 64, 1)),
+                      suffixIcon: const Icon(
+                        Icons.location_city,
+                        color: Color.fromRGBO(0, 77, 64, 1),
                       ),
-                      onChanged: api.handleSearch,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: const BorderSide(
+                            color: Color.fromRGBO(0, 77, 64, 1), width: 3.0),
+                      ),
                     ),
+                    onChanged: api.handleSearch,
                   ),
                   const SizedBox(
                     height: 30,
@@ -83,41 +85,47 @@ class _SearchPageState extends State<SearchPage> {
                             controller: _scrollController,
                             child: SingleChildScrollView(
                               controller: _scrollController,
-                              child: Container(
-                                child: Builder(builder: (context) {
-                                  return Column(
-                                    children:
-                                        List.generate(data!.length, (index) {
-                                      final place = data[index];
-                                      return Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: ListTile(
-                                          onTap: () async {
-                                            List<Location> location =
-                                                await locationFromAddress(
-                                                    place.city);
+                              child: Builder(builder: (context) {
+                                return Column(
+                                  children:
+                                      List.generate(data!.length, (index) {
+                                    final place = data[index];
+                                    return Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: ListTile(
+                                        onTap: () async {
+                                          List<Location> location;
+                                          location = await locationFromAddress(
+                                              place.city);
 
-                                            //***GET LONG AND LANG FROM HERE!!! ****/
-
-                                            print(location.last.longitude);
-                                            print(location.last.latitude);
-                                          },
-                                          title: Text(
-                                            place.city,
-                                            style: const TextStyle(
-                                                color: Colors.blue),
-                                          ),
-                                          subtitle: Text(
-                                            "${place.state},${place.country}",
-                                            style: const TextStyle(
-                                                color: Colors.black),
-                                          ),
+                                          //***GET LONG AND LANG FROM HERE!!! ****/
+                                          print(location.last.longitude);
+                                          print(location.last.latitude);
+                                          navigator.push(MaterialPageRoute(
+                                              builder: (context) =>
+                                                  NewLocationscreen(
+                                                      lat: location
+                                                          .last.latitude,
+                                                      lon: location
+                                                          .last.longitude,
+                                                      globalController:
+                                                          GlobalController())));
+                                        },
+                                        title: Text(
+                                          place.city,
+                                          style: const TextStyle(
+                                              color: Colors.blue),
                                         ),
-                                      );
-                                    }),
-                                  );
-                                }),
-                              ),
+                                        subtitle: Text(
+                                          "${place.state}, ${place.country}",
+                                          style: const TextStyle(
+                                              color: Colors.black),
+                                        ),
+                                      ),
+                                    );
+                                  }),
+                                );
+                              }),
                             ),
                           );
                         }),
