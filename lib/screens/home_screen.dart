@@ -1,7 +1,6 @@
 import 'package:air_quality_app/controller/global_controller.dart';
 import 'package:air_quality_app/screens/search_location.dart';
 import 'package:air_quality_app/widgets/components_widget.dart';
-import 'package:air_quality_app/widgets/drawer.dart';
 import 'package:air_quality_app/widgets/header_widget.dart';
 import 'package:air_quality_app/widgets/notification_widget.dart';
 import 'package:get/get.dart';
@@ -31,11 +30,7 @@ class _HomeSCreenState extends State<HomeSCreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: Container(
-          color: const Color.fromARGB(255, 226, 221, 226),
-        ),
-      ),
+     
 
       //AppBar
       appBar: AppBar(
@@ -44,10 +39,12 @@ class _HomeSCreenState extends State<HomeSCreen> {
         elevation: 0.0,
         actions: [
           IconButton(
+            iconSize: 30,
             onPressed: searchBut,
             icon: const Icon(
               Icons.search,
               color: Color.fromRGBO(0, 77, 64, 1),
+              
             ),
           )
         ],
