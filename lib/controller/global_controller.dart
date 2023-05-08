@@ -1,6 +1,5 @@
 import 'package:air_quality_app/api/fetch_air_quality.dart';
 import 'package:air_quality_app/model/air_quality/air_quality.dart';
-import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 

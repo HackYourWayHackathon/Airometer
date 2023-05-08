@@ -2,10 +2,7 @@ import 'package:air_quality_app/api/location_api.dart';
 import 'package:air_quality_app/controller/global_controller.dart';
 import 'package:air_quality_app/screens/new_location.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:geocoding/geocoding.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets/places.dart';

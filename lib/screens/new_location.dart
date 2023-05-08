@@ -1,6 +1,6 @@
-import 'package:air_quality_app/api/fetch_air_quality.dart';
+
 import 'package:air_quality_app/controller/global_controller.dart';
-import 'package:air_quality_app/model/air_quality/air_quality.dart';
+
 import 'package:air_quality_app/widgets/aqi_data_widget.dart';
 import 'package:air_quality_app/widgets/components_widget.dart';
 import 'package:air_quality_app/widgets/header_widget.dart';

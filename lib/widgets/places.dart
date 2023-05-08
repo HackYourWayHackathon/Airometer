@@ -1,4 +1,4 @@
-import 'package:intl/intl.dart';
+
 
 class Place{
   final String city;
