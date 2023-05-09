@@ -22,6 +22,8 @@ Airometer is an Air Quality index application built for 'Hack Your Way' hackatho
 
 Check it yourself :)
 
+
+
 ## Tech Stack Used
 
 <img src="https://storage.googleapis.com/cms-storage-bucket/70760bf1e88b184bb1bc.png"
@@ -37,7 +39,15 @@ Check it yourself :)
 git clone https://github.com/Air-Quality-Index/Airometer.git
 ```
 
-3. Run the app with Android Studio or VS Code. Or the command line:
+3. Generate and add api key
+
+- Sign in to [OpenWeatherMap.org](https://openweathermap.org/) to retrieve your own API Key.
+- In the path ``` aqi app\lib\api ``` create file ``` api_key.dart ```
+- In the file ``` api_key.dart ``` paste the cose ```const apiKey="API_KEY";```
+- Replace the text ```API_KEY``` with your own api key
+
+
+4. Run the app with Android Studio or VS Code. Or the command line:
 
 ```
 flutter pub get
