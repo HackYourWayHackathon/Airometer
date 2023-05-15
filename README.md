@@ -11,7 +11,7 @@ Airometer is an Air Quality index application built for 'Hack Your Way' hackatho
 ## Download
 
  <a href="https://drive.google.com/drive/folders/1uG59lQfDSPf6ZqGs3DNBZDkQ2Tk-zbyI?usp=sharing">Click on me to get the application</a>
- In case the application doesn't load properly, make sure to turn on location and relaunch it.
+ <br>In case the application doesn't load properly, make sure to turn on location and relaunch it.
  
  ## Features
 
