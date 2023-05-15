@@ -11,6 +11,7 @@ Airometer is an Air Quality index application built for 'Hack Your Way' hackatho
 ## Download
 
  <a href="https://drive.google.com/drive/folders/1uG59lQfDSPf6ZqGs3DNBZDkQ2Tk-zbyI?usp=sharing">Click on me to get the application</a>
+ In case the application doesn't load properly, make sure to turn on location and relaunch it.
  
  ## Features
 
@@ -42,9 +43,9 @@ git clone https://github.com/Air-Quality-Index/Airometer.git
 3. Generate and add api key
 
 - Sign in to [OpenWeatherMap.org](https://openweathermap.org/) to retrieve your own API Key.
-- In the path ``` aqi app\lib\api ``` create file ``` api_key.dart ```
-- In the file ``` api_key.dart ``` paste the cose ```const apiKey="API_KEY";```
-- Replace the text ```API_KEY``` with your own api key
+- In the path ``` airometer\lib\api ``` create file ``` api_key.dart ```.
+- In the file ``` api_key.dart ``` paste the code ```const apiKey="API_KEY";```.
+- Replace the text ```API_KEY``` with your own api key.
 
 
 4. Run the app with Android Studio or VS Code. Or the command line:
