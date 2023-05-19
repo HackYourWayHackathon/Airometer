@@ -1,6 +1,6 @@
 # Airometer
 
-Airometer is an Air Quality index application built for 'Hack Your Way' hackathon organized by IIC TMSL and part of Envisage 2k23
+Airometer is an app that can track and summarise the air quality around you or anywhere round the globe.
 
 [![made-with-flutter](https://img.shields.io/badge/Made%20with-Flutter-1f425f.svg)](https://flutter.dev/)
 
@@ -15,13 +15,17 @@ Airometer is an Air Quality index application built for 'Hack Your Way' hackatho
  
  ## Features
 
-- Live Air Quality Information
-- AQI information of other places
-- Information on all major polluting agents
-- No Subscription
-- No Ads
+- [x] Live Air Quality Information using Reatime Location
+- [x] AQI information of every place around the globe
+- [x] Information on all major polluting agents
+- [x] Automatically updates data time to time 
+- [x] Notification widget briefly describing air quality
+- [x] Automatic notification alerts at poor air quality   
+- [x] Clean and elegant UI
+- [x] No Subscription
+- [x] No Ads
 
-Check it yourself :)
+Check it out yourself :)
 
 
 
@@ -29,6 +33,7 @@ Check it yourself :)
 
 <img src="https://storage.googleapis.com/cms-storage-bucket/70760bf1e88b184bb1bc.png"
      width="600">
+<img src="https://openweathermap.org/themes/openweathermap/assets/img/mobile_app/android-app-top-banner.png" width="295.197438634">
  
 
 ## Building from Source
