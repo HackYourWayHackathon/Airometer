@@ -32,8 +32,8 @@ Check it out yourself :)
 ## Tech Stack Used
 
 <img src="https://storage.googleapis.com/cms-storage-bucket/70760bf1e88b184bb1bc.png"
-     width="600">
-<img src="https://openweathermap.org/themes/openweathermap/assets/img/mobile_app/android-app-top-banner.png" width="295.197438634">
+     width="400">
+<img src="https://openweathermap.org/themes/openweathermap/assets/img/mobile_app/android-app-top-banner.png" width="196.798292423">
  
 
 ## Building from Source
