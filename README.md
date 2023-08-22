@@ -1,5 +1,6 @@
 # Airometer
 
+### 3rd place🥉 Winner at Hack You Way Hackathon organised by IIC TMSL ✨
 Airometer is an app that can track and summarise the air quality around you or anywhere round the globe.
 
 [![made-with-flutter](https://img.shields.io/badge/Made%20with-Flutter-1f425f.svg)](https://flutter.dev/)
